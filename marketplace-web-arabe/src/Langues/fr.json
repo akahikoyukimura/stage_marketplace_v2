@@ -99,6 +99,25 @@
     "cmd_pret_a_livrer":"Prêt à livrer",
     "cmd_pret_a_livre":"Liste des commandes dont les ordres de virement des restes à payer sont en phase de validation. Vous serez contactés pour la livraison suite à leur validation. ",
     "cmd_compliments_a_payer":"Compléments à payer",
-    "cmd_reste_a_payer":"Reste à payer"
+    "cmd_reste_a_payer":"Reste à payer",
+    "cmd_option_filtrage":"Option de filtrage",
+    "cmd_delai_avance":"Delai de paiement depasse de l'avance",
+    "cmd_delai_reste":"Delai de paiement depasse du reste",
+    "cmd_recu_avance_non_conforme":"Reçu non conforme de l'avance",
+    "cmd_recu_reste_non_conforme":"Reçu non conforme du reste",
+    "cmd_montant_avance_non_recu":"Montant non reçu de l'avance",
+    "cmd_montant_reste_non_recu":"Montant non reçu du reste",
+    "cmd_annulations":"Annulation(s) effectuee(s) par moi-meme avant la livraison",
+    "cmd_rejet":"Annulation(s) effectuee(s) Rejet a la livraison ",
+    "cmd_avance_moin_cher_au_plus":"Avance moins cher au plus cher",
+    "cmd_avance_plus_cher_au_moins":"Avance plus cher au moins cher",
+    "cmd_delai_plus_proche":"Delai de paiement Plus proche",
+    "cmd_delai_plus_lointaine":"Delai de paiement plus lointaine",
+    "cmd_reste_moin_cher_au_plus":"Reste moins cher au plus cher",
+    "cmd_reste_plus_cher_au_moins":"Reste plus cher au moins cher",
+    "cmd_prix_moin_cher_au_plus":"Prix Moins cher au plus cher",
+    "cmd_prix_plus_cher_au_moins":"Prix Plus cher au moins cher",
+    "cmd_en_cours_de_validation":"Commande(s) en cours de validation",
+    "cmd_valide":"Commande(s) validee(s)"
 
   }

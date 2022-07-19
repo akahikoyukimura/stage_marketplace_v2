@@ -30,47 +30,47 @@ class Commandes extends Component {
       optionsSort: [],
       selectedOptionSort1: null,
       optionsSort1: [
-        { value: "", label: "Option de filtrage" },
+        { value: "", label: <FormattedMessage id="cmd_option_filtrage"/> },
 
-        { value: "delai_avance", label: "Delai de paiement depasse de l'avance" },
-        { value: "delai_reste", label: "Delai de paiement depasse du reste " },
+        { value: "delai_avance", label: <FormattedMessage id="cmd_delai_avance"/> },
+        { value: "delai_reste", label: <FormattedMessage id="cmd_delai_reste"/> },
 
-        { value: "Reçu de l’avance non conforme", label: "Reçu non conforme de l'avance" },
-        { value: "Reçu du reste non conforme", label: "Reçu non conforme du reste" },
+        { value: "Reçu de l’avance non conforme", label: <FormattedMessage id="cmd_recu_avance_non_conforme"/> },
+        { value: "Reçu du reste non conforme", label: <FormattedMessage id="cmd_recu_reste_non_conforme"/> },
 
-        { value: "Montant de l’avance non reçu", label: "Montant non reçu de l'avance" },
-        { value: "Montant du reste non reçu", label: "Montant non reçu du reste" },
+        { value: "Montant de l’avance non reçu", label: <FormattedMessage id="cmd_montant_avance_non_recu"/> },
+        { value: "Montant du reste non reçu", label: <FormattedMessage id="cmd_montant_reste_non_recu"/> },
 
-        { value: "Annulation", label: "Annulation(s) effectuee(s) par moi-meme avant la livraison" },
-        { value: "rejet", label: "Annulation(s) effectuee(s) Rejet a la livraison " },
+        { value: "Annulation", label: <FormattedMessage id="cmd_annulations"/> },
+        { value: "rejet", label: <FormattedMessage id="cmd_rejet"/> },
       ],
       selectedOptionSort2: null,
       optionsSort2: [
-        { value: "", label: "Option de filtrage" },
-        { value: "avance", label: "Avance moins cher au plus cher" },
-        { value: "avance_dec", label: "Avance plus cher au moins cher" },
+        { value: "", label: <FormattedMessage id="cmd_option_filtrage"/> },
+        { value: "avance", label: <FormattedMessage id="cmd_avance_moin_cher_au_plus"/> },
+        { value: "avance_dec", label: <FormattedMessage id="cmd_avance_plus_cher_au_moins"/> },
 
-        { value: "deadline", label: "Delai de paiement Plus proche" },
-        { value: "deadline_dec", label: "Delai de paiement plus lointaine" },
+        { value: "deadline", label: <FormattedMessage id="cmd_delai_plus_proche"/> },
+        { value: "deadline_dec", label: <FormattedMessage id="cmd_delai_plus_lointaine"/> },
 
       ],
       selectedOptionSort3: null,
       optionsSort3: [
-        { value: "", label: "Option de filtrage" },
-        { value: "reste", label: "Reste moins cher au plus cher" },
-        { value: "reste_dec", label: "Reste plus cher au moins cher" },
+        { value: "", label: <FormattedMessage id="cmd_option_filtrage"/> },
+        { value: "reste", label: <FormattedMessage id="cmd_reste_moin_cher_au_plus"/> },
+        { value: "reste_dec", label: <FormattedMessage id="cmd_reste_plus_cher_au_moins"/> },
 
-        { value: "deadline", label: "Delai de paiement Plus proche" },
-        { value: "deadline_dec", label: "Delai de paiement plus lointaine" },
+        { value: "deadline", label: <FormattedMessage id="cmd_delai_plus_proche"/>},
+        { value: "deadline_dec", label: <FormattedMessage id="cmd_delai_plus_lointaine"/> },
       ],
       selectedOptionSort4: null,
       optionsSort4: [
-        { value: "", label: "Option de filtrage" },
-        { value: "prix_total", label: "Prix Moins cher au plus cher" },
-        { value: "prix_total_dec", label: "Prix Plus cher au moins cher" },
+        { value: "", label: <FormattedMessage id="cmd_option_filtrage"/> },
+        { value: "prix_total", label: <FormattedMessage id="cmd_prix_moin_cher_au_plus"/> },
+        { value: "prix_total_dec", label: <FormattedMessage id="cmd_prix_plus_cher_au_moins"/> },
 
-        { value: "en attente de validation reste", label: "Commande(s) en cours de validation" },
-        { value: "validé", label: "Commande(s) validee(s)" },
+        { value: "en attente de validation reste", label: <FormattedMessage id="cmd_en_cours_de_validation"/> },
+        { value: "validé", label: <FormattedMessage id="cmd_valide"/> },
       ],
     };
     this.paginate = this.paginate.bind(this);

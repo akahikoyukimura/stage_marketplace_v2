@@ -82,7 +82,7 @@ class Commandes extends Component {
             },
           })
           .then((res) => {
-
+            
             this.setState(
               {
                 Paniers: res.data,
@@ -95,6 +95,7 @@ class Commandes extends Component {
                   ),
                 })
             );
+
             let i = 0; let coop = [];
             this.state.Paniers.map((c) => { coop[i] = c.id_cooperative; i++ });
             const unique = (value, index, self) => { return self.indexOf(value) === index }
@@ -261,6 +262,7 @@ class Commandes extends Component {
   }
 
   render() {
+
     var fav = this.state.Paniers.filter((Paniers) => Paniers !== null);
 
     const { loading } = this.state;

@@ -103,26 +103,26 @@ class Commandes extends Component {
       });
     }
 
-    // this.setState(() => {
-    //   axios
-    //     .get("http://127.0.0.1:8000/api/consommateur/" + token + "/panier", {
-    //       headers: {
-    //         // "x-access-token": token, // the token is a variable which holds the token
-    //         "Content-Type": "application/json",
-    //         Authorization: myToken,
-    //       },
-    //     })
-    //     .then((res) => {
-    //       this.setState({
-    //         panier: res.data,
-    //       });
-    //       let p = [];
-    //       this.state.panier.map((e) => {
-    //         p.push(e._id);
-    //       });
-    //       this.setState({ idp: p });
-    //     });
-    // });
+    this.setState(() => {
+      axios
+        .get("http://127.0.0.1:8000/api/consommateur/" + token + "/panier", {
+          headers: {
+            // "x-access-token": token, // the token is a variable which holds the token
+            "Content-Type": "application/json",
+            Authorization: myToken,
+          },
+        })
+        .then((res) => {
+          this.setState({
+            panier: res.data,
+          });
+          let p = [];
+          this.state.panier.map((e) => {
+            p.push(e._id);
+          });
+          this.setState({ idp: p });
+        });
+    });
   }
   annonceVision(a) {
     if (a.race === undefined) {
