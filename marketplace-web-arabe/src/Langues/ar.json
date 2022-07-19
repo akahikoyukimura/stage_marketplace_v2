@@ -117,5 +117,27 @@
     "cmd_prix_moin_cher_au_plus":"السعر من الأرخص إلى الأغلى",
     "cmd_prix_plus_cher_au_moins":"السعر من الأغلى إلى الأرخص ",
     "cmd_en_cours_de_validation":"الطلبية (الطلبيات) التي يتم التحقق من صحتها",
-    "cmd_valide":"الطلبية (الطلبيات) التي تم التحقق من صحتها"
+    "cmd_valide":"الطلبية (الطلبيات) التي تم التحقق من صحتها",
+
+    "_comment9":"la page des eleveurs",
+    "eleveurs_rechercher":"بحث",
+    "eleveurs_espece":"الأنواع",
+    "eleveurs_race":"العرق",
+    "eleveurs_region":"الجهة",
+    "eleveurs_ville":"المدينة",
+    "eleveurs_reinitialiser":"إعادة",
+    "eleveurs_nos_eleveurs":"المربين لدينا",
+    "eleveurs_pas_eleveur":"لا يوجد أي مربي",
+    "eleveurs_trie":"{icon} ترتيب حسب عدد النجمات",
+    "eleveurs_etoile":"نجمة",
+
+    "_comment10":"Apropos",
+    "Apropos_text":"الجمعية الوطنية لمربي الأغنام والماعز هي جمعية وطنية ذات هدف غير ربحي، تسعى لتنمية مربي الأغنام والماعز وتعزيز مهنتهم ضمن ظروف صعبة داخل العالم القروي. من بين أهداف الجمعية أيضا، المساهمة في التنمية الاقتصادية والاجتماعية من خلال تنمية تربية هذه المواشي والتسويق لمنتجاتها",
+    "Apropos_nous":"من نحن ؟",
+    "Apropos_objectifs":"أهدافنا ؟",
+
+
+    "_comment11":"Footer",
+    "Footer_suivez":"تابعنا"
+
   }
