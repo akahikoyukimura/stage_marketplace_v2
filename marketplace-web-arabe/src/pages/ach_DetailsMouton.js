@@ -16,6 +16,10 @@ import {
   TwitterIcon,
 } from "react-share";
 
+import { FormattedMessage } from "react-intl";
+
+const intl=JSON.parse(localStorage.getItem('intl'))
+
 class DetailsMouton extends Component {
   constructor() {
     super();
@@ -167,7 +171,7 @@ class DetailsMouton extends Component {
         )
         .then(this.setState({ isFav: true }));
       Swal.fire({
-        title: "Ajouté avec succès dans vos Favoris",
+        title: intl.messages.details_mouton_ajoute_favoris_succes,
         icon: "success",
         width: 400,
         heightAuto: false,
@@ -204,7 +208,7 @@ class DetailsMouton extends Component {
         )
         .then(this.setState({ isInpanier: true }));
       Swal.fire({
-        title: "Ajouté dans Pannier",
+        title: intl.messages.details_mouton_ajoute_panier,
         icon: "success",
         width: 400,
         heightAuto: false,
@@ -242,7 +246,7 @@ class DetailsMouton extends Component {
         )
         .then(this.setState({ isFav: false }));
       Swal.fire({
-        title: "Supprimé avec succès ",
+        title: intl.messages.details_mouton_supprimer_du_favoris_succes,
         icon: "success",
         width: 400,
         heightAuto: false,
@@ -282,7 +286,7 @@ class DetailsMouton extends Component {
             />
           </div>
         ) : (
-          <section className="product-details spad">
+          <section style={localStorage.getItem('lg')=='ar'?{"direction":"rtl"}:{}} className="product-details spad">
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 col-md-6">
@@ -305,28 +309,28 @@ class DetailsMouton extends Component {
                     {this.state.Espece.anoc ?
                       <h1 style={{ fontSize: "14px", backgroundColor: "#4CB050", color: "white" }} className=" badge    rounded-0  w-100  ">
                         <HiOutlineBadgeCheck className=" mr-1 fa-lg " />
-                        <span>Labélisé ANOC</span>  </h1>
+                        <span><FormattedMessage id="panier_Labelise"/></span>  </h1>
                       :
                       null}
                     <div className="row">
-                      <div className="container">
+                      <div style={localStorage.getItem('lg')=='ar'?{"textAlign":"right"}:{}} className="container">
                         <div id="lesImagesM" className="col-lg-12 col-md-12 mb-2">
                           <div className="row"> <img
-                            className="col-sm-4" style={{ height: "100px", width: "auto",margin:"auto" }}
+                            className="col-sm-4" style={{ height: "100px", width: "auto",margin:"auto",cursor:"pointer" }}
                             // data-imgbigurl="Images/1.jpg"
                             src={this.state.Espece.image_boucle}
                             alt=""
                             onClick={this.onClickImageBoucle}
                           />
                             <img
-                              className="col-sm-4" style={{ height: "100px", width: "auto",margin:"auto" }}
+                              className="col-sm-4" style={{ height: "100px", width: "auto",margin:"auto",cursor:"pointer" }}
                               // data-imgbigurl="Images/1.jpg"
                               src={this.state.Espece.image_face}
                               alt=""
                               onClick={this.onClickImageFace}
                             />
                             <img
-                              className="col-sm-4" style={{ height: "100px", width: "auto",margin:"auto" }}
+                              className="col-sm-4" style={{ height: "100px", width: "auto",margin:"auto",cursor:"pointer" }}
                               // data-imgbigurl="Images/1.jpg"
                               src={this.state.Espece.image_profile}
                               alt=""
@@ -338,7 +342,7 @@ class DetailsMouton extends Component {
                         </div>
                         {this.state.Espece.anoc ?
                           <span className=" text-success ">
-                            <HiOutlineBadgeCheck className=" mr-1 fa-lg " /> Le label de l'ANOC est un gage de la qualité du produit. <br></br></span>
+                            <HiOutlineBadgeCheck className=" mr-1 fa-lg " /> <FormattedMessage id="details_mouton_label_anoc"/> <br></br></span>
                           : null}
                         <br></br>
                         <div >
@@ -347,44 +351,84 @@ class DetailsMouton extends Component {
                           <div id="centrer2">
                             {/* Ajouter ici Social Sharing Button */}
                             <h4 id="centrer2">
-                              Partager l'annonce avec vos proches sur :
+                              <FormattedMessage id="details_mouton_partage_annonce"/>
                               </h4>
                             <br></br>
                             <div>
-                              <EmailShareButton
+
+                            <FormattedMessage id="details_mouton_partage_par_email_body" 
+                            values={{ categorie: this.state.Espece.categorie,race:this.state.Espece.race }}
+                            >
+                          {(body) => (
+                            <EmailShareButton
+                            url={shareUrl + "/" + this.state.Espece._id}
+                            subject={intl.messages.details_mouton_partage_par_email_subject}
+                            body={body}
+                          >
+                            <EmailIcon size={36} round />
+                          </EmailShareButton>
+                          )}
+                        </FormattedMessage>{" "}
+                        
+                              {/* <EmailShareButton
                                 url={shareUrl + "/" + this.state.Espece._id}
-                                subject="Annonce intéressante à voir (Animal à vendre)"
-                                body={"Annonce intéressante à voir ( " + this.state.Espece.categorie + " " + this.state.Espece.race + " )"}
+                                subject={intl.messages.details_mouton_partage_par_email_subject}
+                                body={"Annonce intéressante à voir ( " + this.state.Espece.categorie + " " +
+                                 this.state.Espece.race + " )"}
                               >
                                 <EmailIcon size={36} round />
-                              </EmailShareButton>{" "}
+                              </EmailShareButton>{" "} */}
                               {/*<FacebookMessengerShareButton
                                     url="https://github.com/nygardk/react-share"
                                     appId="521270401588372"
                                   >
                                     <FacebookMessengerIcon size={36} round />
                                   </FacebookMessengerShareButton> {" "}*/}
-                              <FacebookShareButton
-                                // url= "https://youtube.com"
-                                url={shareUrl + "/" + this.state.Espece._id}
-                                quote={"Annonce intéressante à voir ( " + this.state.Espece.categorie + " " + this.state.Espece.race + " )"}
-                              >
-                                <FacebookIcon size={36} round />
-                              </FacebookShareButton>{" "}
-                              <WhatsappShareButton
-                                // url= "https://youtube.com"
-                                url={shareUrl + "/" + this.state.Espece._id}
-                                title={"Annonce intéressante à voir ( " + this.state.Espece.categorie + " " + this.state.Espece.race + " )"}
-                                separator=": "
-                              >
-                                <WhatsappIcon size={36} round />
-                              </WhatsappShareButton>{" "}
-                              <TwitterShareButton
-                                url={shareUrl + "/" + this.state.Espece._id}
-                                title={"Annonce intéressante à voir ( " + this.state.Espece.categorie + " " + this.state.Espece.race + " )"}
-                              >
-                                <TwitterIcon size={36} round />
-                              </TwitterShareButton>
+
+                        <FormattedMessage id="details_mouton_partage_par_email_body" 
+                            values={{ categorie: this.state.Espece.categorie,race:this.state.Espece.race }}
+                            >
+                          {(quote) => (
+                            <FacebookShareButton
+                            // url= "https://youtube.com"
+                            url={shareUrl + "/" + this.state.Espece._id}
+                            quote={quote}
+                          >
+                            <FacebookIcon size={36} round />
+                          </FacebookShareButton>
+                          )}
+                        </FormattedMessage>
+                              
+                              {" "}
+                              <FormattedMessage id="details_mouton_partage_par_email_body" 
+                            values={{ categorie: this.state.Espece.categorie,race:this.state.Espece.race }}
+                            >
+                          {(title) => (
+                            <WhatsappShareButton
+                            // url= "https://youtube.com"
+                            url={shareUrl + "/" + this.state.Espece._id}
+                            title={title}
+                            separator=": "
+                          >
+                            <WhatsappIcon size={36} round />
+                          </WhatsappShareButton>
+                          )}
+                        </FormattedMessage>
+                              
+                              {" "}
+                              <FormattedMessage id="details_mouton_partage_par_email_body" 
+                            values={{ categorie: this.state.Espece.categorie,race:this.state.Espece.race }}
+                            >
+                          {(title) => (
+                            <TwitterShareButton
+                            url={shareUrl + "/" + this.state.Espece._id}
+                            title={title}
+                          >
+                            <TwitterIcon size={36} round />
+                          </TwitterShareButton>
+                          )}
+                        </FormattedMessage>
+                              
                             </div>
                           </div>
 
@@ -393,12 +437,12 @@ class DetailsMouton extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6 col-md-6">
+                <div style={localStorage.getItem('lg')=='ar'?{"textAlign":"right"}:{}} className="col-lg-6 col-md-6">
                   <div className="product__details__text">
                     <h3 className="col-lg-12 col-md-12  ">
                       <span className="col-lg-11 col-md-11">
                         {" "}
-                      Détails annonce espèce{"              "}
+                      <FormattedMessage id="details_mouton_details_annonce"/>{"              "}
                         <h4 className="d-inline">
                           {this.state.isFav ? (
                             <span className="text-left text-danger col-lg-2 col-md-2">
@@ -435,9 +479,9 @@ class DetailsMouton extends Component {
                     <div id="centrer" className="container col-md-12">
                       <b>{" "}</b>
                       <br></br>
-                      <b>Annonce № : <span className="text-secondary">{this.state.Espece.reference}</span> <br></br> </b>
+                      <b><FormattedMessage id="details_mouton_numero"/> <span className="text-secondary">{this.state.Espece.reference}</span> <br></br> </b>
                       <br></br>
-                      <b className="w-50">Nom du proprietaire (eleveur) :
+                      <b className="w-50"><FormattedMessage id="details_mouton_nom_eleveur"/>
                       <span className="text-secondary"> {" " + this.state.eleveur.nom.toUpperCase() +
                           "     " +
                           this.state.eleveur.prenom} </span></b>
@@ -445,28 +489,36 @@ class DetailsMouton extends Component {
                       <ul className="pt-4">
 
                         <li>
-                          <b>№ Boucle</b> <span>{this.state.Espece.boucle}</span>
+                          <b><FormattedMessage id="details_mouton_numero_boucle"/></b> <span>{this.state.Espece.boucle}</span>
                         </li>
                         <li>
-                          <b>Espece</b> <span>{this.state.Espece.espece}</span>
+                          <b><FormattedMessage id="details_mouton_espece"/></b> <span>{this.state.Espece.espece}</span>
                         </li>
                         {/*<li>
                           <b>Categorie</b> <span>{this.state.Espece.categorie}</span>
                         </li>*/}
                         <li>
-                          <b>Race</b> <span>{this.state.Espece.race}</span>
+                          <b><FormattedMessage id="home_item_race"/></b> <span>{this.state.Espece.race}</span>
                         </li>
                         <li>
-                          <b>localisation</b> <span>{this.state.Espece.localisation} </span>
+                          <b><FormattedMessage id="add_mouton_localisation"/></b> <span>{this.state.Espece.localisation} </span>
                         </li>
                         <li>
-                          <b>sexe</b> <span>{this.state.Espece.sexe} </span>
+                          <b><FormattedMessage id="add_mouton_sexe"/></b> <span>{this.state.Espece.sexe} </span>
                         </li>
                         <li>
-                          <b>Age</b> <span>{this.state.Espece.age} mois</span>
+                        <FormattedMessage
+   id = "details_mouton_age"
+   values = {{age: this.state.Espece.age, b: (word)=> <b>{word}</b>,span: (word)=> <span>{word}</span>}}
+/>
+                          {/* <b>Age</b> <span>{this.state.Espece.age} mois</span> */}
                         </li>
                         <li>
-                          <b>Poids</b> <span>{this.state.Espece.poids} Kg</span>
+                        <FormattedMessage
+   id = "details_mouton_poids"
+   values = {{poids: this.state.Espece.poids, b: (word)=> <b>{word}</b>,span: (word)=> <span>{word}</span>}}
+/>
+                          {/* <b>Poids</b> <span>{this.state.Espece.poids} Kg</span> */}
                         </li>
 
 
@@ -476,8 +528,12 @@ class DetailsMouton extends Component {
                         </li>
 
                         <li className="bg-ligh text-danger  h6 center" >
-                          <b>Prix </b>
-                          {this.state.Espece.prix} Dhs<i> (Hors transport)</i>
+                        <FormattedMessage
+   id = "details_mouton_prix"
+   values = {{prix: this.state.Espece.prix, b: (word)=> <b>{word}</b>,i: (word)=> <i>{word}</i>}}
+/>
+                          {/* <b>Prix </b>
+                          {this.state.Espece.prix} Dhs<i> (Hors transport)</i> */}
                         </li>
                       </ul>
                     </div>
@@ -485,12 +541,12 @@ class DetailsMouton extends Component {
 
                   </div>
                   <div>
-                    <h4>Description</h4>
+                    <h4><FormattedMessage id="details_mouton_description_title"/></h4>
                     <div id="gris" className="container ">
                       {this.state.Espece.description ? (
                         <p className="text-dark col-md-12">{this.state.Espece.description}</p>
                       ) : (
-                        <p  >Aucune description disponible</p>
+                        <p  ><FormattedMessage id="details_mouton_aucune_description"/></p>
                       )}
                     </div>
                     <br></br>
@@ -511,7 +567,7 @@ class DetailsMouton extends Component {
                           <button style={{ borderColor: 'transparent', backgroundColor: "#4CB050",paddingLeft:"19px",paddingRight:"19px" }}
 
                             className="primary-btn rounded     "  >
-                             <i className="fa fa-plus"></i> Commander l'espece
+                             <i className="fa fa-plus"></i> <FormattedMessage id="details_mouton_commander"/>
         </button>
                         </Link></div>
  
@@ -527,7 +583,7 @@ class DetailsMouton extends Component {
                             this.handlePanier(e.currentTarget.id)
                           }
                         >
-                          <i className="fa fa-shopping-cart"></i> Ajouter au panier
+                          <i className="fa fa-shopping-cart"></i> <FormattedMessage id="favoris_ajoute_au_panier"/>
             </button>  </Link> </div>
                         <div className="col-md-6 mt-2">  <Link
                           to={{
@@ -541,7 +597,7 @@ class DetailsMouton extends Component {
                           <button style={{ borderColor: 'transparent', backgroundColor: "#4CB050",paddingLeft:"19px",paddingRight:"19px" }}
 
                             className="primary-btn rounded    "  >
-                            <i className="fa fa-plus"></i> Commander l'espece
+                            <i className="fa fa-plus"></i> <FormattedMessage id="details_mouton_commander"/>
 </button>
                         </Link></div>
                       </>
@@ -560,7 +616,7 @@ class DetailsMouton extends Component {
                               <button style={{ borderColor: 'transparent', backgroundColor: "#4CB050" ,paddingLeft:"19px",paddingRight:"19px"}}
 
                                 className="primary-btn rounded    "  >
-                                 <i className="fa fa-plus"></i> Commander l'espece
+                                 <i className="fa fa-plus"></i> <FormattedMessage id="details_mouton_commander"/>
 </button>
                             </Link></div>
                             : null}

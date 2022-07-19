@@ -75,7 +75,7 @@
     "_comment6": "this is ach_favoris page",
     "favoris_title":"Mes favoris",
     "favoris_vide":"Liste des favoris vide !",
-    "favoris_ajoute_au_panier":"ajouter au Panier",
+    "favoris_ajoute_au_panier":"Ajouter au Panier",
     "favoris_ajoute_au_panier_succes":"Ajouté dans Pannier",
 
     "_comment7":"this is ach_commandes_par_statut",
@@ -132,15 +132,33 @@
     "eleveurs_trie":"{icon} Trie par le nombre d'etoiles",
     "eleveurs_etoile":"Etoile",
 
-
-
     "_comment10":"A propos",
     "Apropos_text":"L’ANOC (Association Nationale Ovine et Caprine) est une association à but non lucratif qui a pour mission principale l’amélioration du revenu de l’éleveur ovin et caprin ainsi que la valorisation de son métier, notamment dans des conditions assez difficiles du milieu rural. Ainsi que la contribution au développement économique et rural par le développement de l’élevage des petits ruminants et la promotion de ses produits.",
     "Apropos_nous":"Qui sommes nous?",
     "Apropos_objectifs":"Nos objectifs ?",
 
     "_comment11":"Footer",
-    "Footer_suivez":"SUIVEZ NOUS"
+    "Footer_suivez":"SUIVEZ NOUS",
+
+    "_comment20":"this is ach_details_mouton page",
+    "details_mouton_ajoute_favoris_succes":"Ajouté avec succès dans vos Favoris",
+    "details_mouton_ajoute_panier":"Ajouté dans Pannier",
+    "details_mouton_supprimer_du_favoris_succes":"Supprimé avec succès ",
+    "details_mouton_label_anoc":"Le label de l'ANOC est un gage de la qualité du produit.",
+    "details_mouton_partage_annonce":"Partager l'annonce avec vos proches sur :",
+    "details_mouton_partage_par_email_subject":"Annonce intéressante à voir (Animal à vendre)",
+    "details_mouton_partage_par_email_body":"Annonce intéressante à voir ( {categorie} {race} )",
+    "details_mouton_details_annonce":"Détails annonce espèce",
+    "details_mouton_numero":"Annonce № :",
+    "details_mouton_nom_eleveur":"Nom du proprietaire (eleveur) :",
+    "details_mouton_numero_boucle":"№ Boucle",
+    "details_mouton_age":"<b>Age</b> <span>{age} mois</span>",
+    "details_mouton_poids":"<b>Poids</b> <span>{poids} Kg</span>",
+    "details_mouton_prix":"<b>Prix </b> {prix} Dhs<i> (Hors transport)</i>",
+    "details_mouton_description_title":"Description",
+    "details_mouton_aucune_description":"Aucune description disponible",
+    "details_mouton_commander":"Commander l'espece",
+    "details_mouton_espece":"Espece"
 
 
   }

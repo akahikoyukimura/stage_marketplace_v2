@@ -136,8 +136,27 @@
     "Apropos_nous":"من نحن ؟",
     "Apropos_objectifs":"أهدافنا ؟",
 
-
     "_comment11":"Footer",
-    "Footer_suivez":"تابعنا"
+    "Footer_suivez":"تابعنا",
+
+    "_comment20":"this is ach_details_mouton page",
+    "details_mouton_ajoute_favoris_succes":"تمت الإضافة إلى قائمة الاشياء المفضلة بنجاح",
+    "details_mouton_ajoute_panier":"تمت الإضافة إلى السلة",
+    "details_mouton_supprimer_du_favoris_succes":"تم الحذف بنجاح ",
+    "details_mouton_label_anoc":"علامة ANOC هي ضمان لجودة المنتج.",
+    "details_mouton_partage_annonce":"شارك الإعلان مع أحبائك على:",
+    "details_mouton_partage_par_email_subject":"إعلان مثير للاهتمام (حيوان للبيع)",
+    "details_mouton_partage_par_email_body":"إعلان مثير للاهتمام ({categorie} {race})",
+    "details_mouton_details_annonce":"تفاصيل الإعلان",
+    "details_mouton_numero":"الإعلان رقم :",
+    "details_mouton_nom_eleveur":"اسم المالك (المربي):",
+    "details_mouton_numero_boucle":"رقم الحلقة",
+    "details_mouton_age":"<b>العمر</b> <span>{age} أشهر</span>",
+    "details_mouton_poids":"<b>الوزن</b> <span>{poids} كلغ</span>",
+    "details_mouton_prix":"<b>الثمن </b> {prix} درهم<i> (دون احتساب تكاليف النقل)</i>",
+    "details_mouton_description_title":"الوصف",
+    "details_mouton_aucune_description":"لا يوجد وصف متاح",
+    "details_mouton_commander":"طلب النوع",
+    "details_mouton_espece":"النوع"
 
   }
