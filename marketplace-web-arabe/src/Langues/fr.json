@@ -158,7 +158,51 @@
     "details_mouton_description_title":"Description",
     "details_mouton_aucune_description":"Aucune description disponible",
     "details_mouton_commander":"Commander l'espece",
-    "details_mouton_espece":"Espece"
+    "details_mouton_espece":"Espece",
+
+    "_comment21":"this is ach_commander page",
+    "commander_title":"Commander votre bête",
+    "commander_error_message_title":"Rappel !",
+    "commander_error_message_body":"Vous n'avez pas fini de remplir cette etape",
+
+    "_comment22":"this is react-multistep page",
+    "multistep_livraison":"Livraison",
+    "multistep_montan_a_payer":"Montan à payer",
+    "multistep_moyens_de_paiement":"Moyens de paiement",
+    "multistep_prec":"Préc",
+    "multistep_suiv":"Suiv",
+
+    "_comment23":"this is step1 page",
+    "step1_title":"Livraison :",
+    "step1_recuperer_a_la_cooperative":"Recuperer a la cooperative",
+    "step1_a_domicile":"Me faire livrer a domicile",
+    "step1_livraison_standard":"Livraison Standard",
+    "step1_livrer_en_point_relais":"Me faire livrer en point relais",
+    "step1_livraison_vip":"Livraison VIP",
+    "step1_date_livraisn":"Date de Livraison",
+    "step1_cooperative":"Cooperative :",
+    "step1_adresse":"Adresse",
+    "step1_ville":"Ville ",
+    "step1_ville_de_livraison":"Ville de Livraison",
+    "step1_point_relais_livraison":"Point relais de Livraison",
+    "step1_point_de_relais":"point de relais",
+    "step1_message_point_relais":"Un technicien ANOC va vous contacter le jour de livraison que vous avez choisi pour vous informer de l'adresse exacte de la livraison.",
+    "step1_message_livraison":"Votre commande sera livre 24h a 48h avant le jour de l'aid. Nous vous contacterons par telephone preciser vous informer du jour et de l'heure exacte.",
+    
+    "_comment24":"this is step2 page",
+    "step2_title":"Montant a payer",
+    "step2_prix_net":"Prix net <span>{prix} Dhs</span>",
+    "step2_prix_transport":"Prix Transport <span>{prix} Dhs </span>",
+    "step2_prix_totale":"Prix totale  <span>{prix} Dhs </span>",
+    "step2_frais_reservation":"Frais de reservation (*) <span>{prix}Dhs</span>",
+    "step2_warning":"* Avance non rembourssable",
+
+    "_comment25":"this is step3 page",
+    "step2_virement_bancaire":"Virement bancaire",
+    "step3_par_agence":"Par agence de transfert d'argent (*)",
+    "step3_frais_transport":"* les frais de transfert sont a la charge de l'achteur",
+    "step3_accepte":"J'accepte les conditions generales de vente",
+    "step3_valider":"Valider"
 
 
   }

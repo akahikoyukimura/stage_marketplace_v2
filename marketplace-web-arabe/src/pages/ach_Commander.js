@@ -11,6 +11,9 @@ import Select from "react-select";
 import Swal from "sweetalert2";
 
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+
+const intl=JSON.parse(localStorage.getItem('intl'))
 class Commander extends Component {
   constructor(props) {
     super(props);
@@ -75,8 +78,8 @@ class Commander extends Component {
           buttonsStyling: false,
         }); 
          swalWithBootstrapButtons.fire(
-          'Rappel !',
-          'Vous n\'avez pas fini de remplir cette etape',
+          intl.messages.commander_error_message_title,
+          intl.messages.commander_error_message_body,
           'error'
         )
         return false ;}  
@@ -420,7 +423,8 @@ class Commander extends Component {
 
     const nextStyle = {
       position: "absolute",
-      right: "7.3%",
+      left:localStorage.getItem('lg')=="ar"?"7.3%":"",
+      right:localStorage.getItem('lg')!="ar"?"7.3%":"",
       background: "#7fad39",
       "border-width": "2px",
       display: "inline-block",
@@ -440,9 +444,9 @@ class Commander extends Component {
     const { optionsVille } = this.state;*/
     return (
       <div>
-        <div class="container">
+        <div style={localStorage.getItem("lg")=="ar"?{"direction":"rtl","textAlign":"right"}:{}} class="container">
           <br></br>
-          <h3>Commander votre bête  </h3>
+          <h3><FormattedMessage id="commander_title"/>  </h3>
 
           <MultiStep
             showNavigation={true}

@@ -157,6 +157,50 @@
     "details_mouton_description_title":"الوصف",
     "details_mouton_aucune_description":"لا يوجد وصف متاح",
     "details_mouton_commander":"طلب النوع",
-    "details_mouton_espece":"النوع"
+    "details_mouton_espece":"النوع",
+
+    "_comment21":"this is ach_commander page",
+    "commander_title":"اطلب حيوانك",
+    "commander_error_message_title":"! تذكير",
+    "commander_error_message_body":"لم تنتهِ من إستكمال هذه المرحلة",
+
+    "_comment22":"this is react-multistep page",
+    "multistep_livraison":"توصيل",
+    "multistep_montan_a_payer":"المبلغ الواجب دفعه",
+    "multistep_moyens_de_paiement":"طرق الدفع",
+    "multistep_prec":"السابق",
+    "multistep_suiv":"التالي",
+
+    "_comment23":"this is step1 page",
+    "step1_title":"توصيل :",
+    "step1_recuperer_a_la_cooperative":"أخذه من التعاونية",
+    "step1_a_domicile":"توصيل إلى المنزل",
+    "step1_livraison_standard":"توصيل عادي",
+    "step1_livrer_en_point_relais":"توصيل إلى نقطة الاستلام",
+    "step1_livraison_vip":"تسليم VIP",
+    "step1_date_livraisn":"تاريخ التسليم",
+    "step1_cooperative":"تعاونية :",
+    "step1_adresse":"العنوان",
+    "step1_ville":"المدينة",
+    "step1_ville_de_livraison":"مدينة التوصيل",
+    "step1_point_relais_livraison":"نقطة التسليم للتوصيل",
+    "step1_point_de_relais":"نقطة التسليم",
+    "step1_message_point_relais":"سيتصل بك أحد تقنيي ANOC في يوم التسليم الذي اخترته لإبلاغك بعنوان التسليم بالضبط.",
+    "step1_message_livraison":"سيتم توصيل طلبك من 24 ساعة إلى 48 ساعة قبل يوم العيد. سوف نتصل بك عبر الهاتف لإبلاغك باليوم والوقت بالتحديد.",
+    
+    "_comment24":"this is step2 page",
+    "step2_title":"المبلغ الواجب دفعه",
+    "step2_prix_net":"السعر الصافي <span>{prix} درهم </span>",
+    "step2_prix_transport":"سعر النقل <span>{prix} درهم </span>",
+    "step2_prix_totale":"السعر الاجمالي  <span>{prix} درهم </span>",
+    "step2_frais_reservation":"رسوم الحجز (*) <span>{prix}درهم</span>",
+    "step2_warning":"* تسبيق غير قابل للاسترداد",
+
+    "_comment25":"this is step3 page",
+    "step2_virement_bancaire":"تحويل مصرفي",
+    "step3_par_agence":"عن طريق وكالة تحويل الأموال (*)",
+    "step3_frais_transport":"* تكاليف التحويل على حساب المشتري",
+    "step3_accepte":"أقبل الشروط العامة للبيع",
+    "step3_valider":"مصادقة"
 
   }

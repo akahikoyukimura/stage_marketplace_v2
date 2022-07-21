@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+
+const intl=JSON.parse(localStorage.getItem('intl'))
 class Commander3 extends Component {
   constructor(props) {
     super(props);
@@ -17,28 +20,28 @@ class Commander3 extends Component {
           <div className="product-details spad">
             {this.props.validation()[0]  ? (<div id="centrer" className="col-lg-12 col-md-6">
               <br></br>
-              <h3>Moyens de paiement:</h3>
+              <h3><FormattedMessage id="multistep_moyens_de_paiement"/>:</h3>
               <div className="shoping__checkout mt-2 pb-0">
 
                 <div className="form-check">
                   <input checked={this.props.data.paiement == "virement"} onChange={this.props.onPaiementChanged} className="form-check-input" type="radio" name="paiement" id="virement" value="virement" />
-                  <label className="form-check-label" htmlFor="virement">
-                    <b> Virement bancaire</b>
+                  <label style={localStorage.getItem("lg")=='ar'?{"marginRight":"25px"}:{}} className="form-check-label" htmlFor="virement">
+                    <b> <FormattedMessage id="step2_virement_bancaire"/></b>
                   </label>
                 </div>
                 <div className="form-check mt-2">
                   <input checked={this.props.data.paiement == "transfert"} onChange={this.props.onPaiementChanged} className="form-check-input" type="radio" name="paiement" id="transfert" value="transfert" />
-                  <label className="form-check-label" htmlFor="transfert">
-                    <b>Par agence de transfert d'argent (*)</b>
+                  <label style={localStorage.getItem("lg")=='ar'?{"marginRight":"25px"}:{}} className="form-check-label" htmlFor="transfert">
+                    <b><FormattedMessage id="step3_par_agence"/></b>
                   </label>
                 </div>
               </div>
-              <span><small>* les frais de transfert sont a la charge de l'achteur</small></span>
+              <span><small><FormattedMessage id="step3_frais_transport"/></small></span>
               <br></br>
               <div className="form-check mt-5">
                 <input id="monCheck" checked={this.props.data.checked} className="form-check-input" type="checkbox" value="" id="condition" onChange={this.props.onChangecheck} />
-                <label className="form-check-label" htmlFor="condition">
-                  J'accepte les conditions generales de vente
+                <label style={localStorage.getItem("lg")=='ar'?{"marginRight":"25px"}:{}} className="form-check-label" htmlFor="condition">
+                  <FormattedMessage id="step3_accepte"/>
   </label>
               </div>
             </div>
@@ -56,10 +59,10 @@ class Commander3 extends Component {
             <a
               style={{ borderColor: 'black' }}
               id=""
-              className="primary-btn float-right text-white"
+              className={localStorage.getItem("lg")=="ar"?"primary-btn float-left text-white":"primary-btn float-right text-white"}
               disabled
             >
-              Valider
+              <FormattedMessage id="step3_valider"/>
                         </a>{" "}
           </Link> : null}
         </div>

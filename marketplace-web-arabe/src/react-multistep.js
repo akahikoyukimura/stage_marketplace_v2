@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { css, styled, setup } from "goober";
+import { FormattedMessage } from "react-intl";
+
+const intl=JSON.parse(localStorage.getItem('intl'))
 setup(React.createElement);
 
 const Ol = styled("ol")`
@@ -128,7 +131,7 @@ export default function MultiStep(props) {
     }
 
   };
-  const a = ["Livraison", "Montan à payer", "Moyens de paiement"];
+  const a = [intl.messages.multistep_livraison,intl.messages.multistep_montan_a_payer, intl.messages.multistep_moyens_de_paiement];
   const ab = [1, 2, 3]
   const renderSteps = () =>
 
@@ -154,7 +157,7 @@ export default function MultiStep(props) {
           }
           onClick={previous}
         >
-          Préc
+          <FormattedMessage id="multistep_prec"/>
         </button>
 
         <button
@@ -163,7 +166,7 @@ export default function MultiStep(props) {
           }
           onClick={next}
         >
-          Suiv
+          <FormattedMessage id="multistep_suiv"/>
         </button>
       </div>
     );
