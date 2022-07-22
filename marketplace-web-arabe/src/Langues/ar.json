@@ -201,6 +201,24 @@
     "step3_par_agence":"عن طريق وكالة تحويل الأموال (*)",
     "step3_frais_transport":"* تكاليف التحويل على حساب المشتري",
     "step3_accepte":"أقبل الشروط العامة للبيع",
-    "step3_valider":"مصادقة"
+    "step3_valider":"مصادقة",
+
+    "_comment26":"this is ach_alerte_commande page",
+    "alerte_cmd_title":"طلبيتك سارت بنجاح",
+    "alerte_cmd_h5_message_validation":"للمصادقة على طلبيتك ، ما عليك سوى دفع رسوم الحجز عن طريق إجراء",
+    "alerte_cmd_h5_message_transfert_au_technicien":" تحويل الأموال للتقني :",
+    "alerte_cmd_h5_message_virement_sur_rib":" تحويل إلى الRIB التالي :",
+    "alerte_cmd_h5_frais_reservation":"رسوم الحجز التي يجب دفعها : <span>{avance} درهم</span>",
+    "alerte_cmd_attention_message1":"<span>تحذير :</span> لديك حتى {deadline} لدفع واستيراد توصيل الدفع الخاص بك.",
+    "alerte_cmd_attention_message2":"بعد هذا الوقت، سيتم إلغاء طلبيتك تلقائيًا!",
+    "alerte_cmd_valider":"المصادقة على الطلبية",
+    "alerte_cmd_annuler":"الغاء الطلبية",
+    "alerte_cmd_annuler_popup_text":"!هل تريد إلغاء طلبيتك",
+    "alerte_cmd_annulation_success_title":"!إلغاء",
+    "alerte_cmd_annulation_success_body":"تم إلغاء طلبيتك بنجاح",
+    "alerte_cmd_annulation_failed_title":"إلغاء",
+    "alerte_cmd_annulation_failed_body":"!لم يتم إلغاء الطلبية",
+    "alerte_cmd_validation_title":"تمت المصادقة على الطلبية",
+    "alerte_cmd_validation_body":"قم بإنهاء طلبيتك في قسم طلباتي"
 
   }

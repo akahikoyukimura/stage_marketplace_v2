@@ -202,7 +202,25 @@
     "step3_par_agence":"Par agence de transfert d'argent (*)",
     "step3_frais_transport":"* les frais de transfert sont a la charge de l'achteur",
     "step3_accepte":"J'accepte les conditions generales de vente",
-    "step3_valider":"Valider"
+    "step3_valider":"Valider",
+
+    "_comment26":"this is ach_alerte_commande page",
+    "alerte_cmd_title":"Votre commande s'est déroulée avec succès",
+    "alerte_cmd_h5_message_validation":"Pour valider votre commande , il vous suffit de payer les frais de reservation en effectuant",
+    "alerte_cmd_h5_message_transfert_au_technicien":"un transfert d'argent au  technicien : ",
+    "alerte_cmd_h5_message_virement_sur_rib":" un virement sur le rib suivant : ",
+    "alerte_cmd_h5_frais_reservation":"Frais de reservation  à payer  : <span>{avance} Dhs</span>",
+    "alerte_cmd_attention_message1":"<span>Attention : </span> Il vous reste jusqu'au {deadline} pour payer et importer votre reçu de paiement.",
+    "alerte_cmd_attention_message2":"Au delà de ce délai, votre commande sera annulée automatiquement !",
+    "alerte_cmd_valider":"Valider la commande",
+    "alerte_cmd_annuler":"Annuler la commande",
+    "alerte_cmd_annuler_popup_text":"Voulez-vous annuler votre commande!",
+    "alerte_cmd_annulation_success_title":"Annulation !",
+    "alerte_cmd_annulation_success_body":"Votre commande a bien été annulée",
+    "alerte_cmd_annulation_failed_title":"Annulation",
+    "alerte_cmd_annulation_failed_body":"Commande non annulée !",
+    "alerte_cmd_validation_title":"Commande validée",
+    "alerte_cmd_validation_body":"Finalisez votre commande dans Mes Commandes"
 
 
   }

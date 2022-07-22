@@ -5,7 +5,9 @@ import Carousel from 'react-bootstrap/Carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
+const intl=JSON.parse(localStorage.getItem('intl'))
 
 class AlerteCommande extends Component {
   constructor(props) {
@@ -42,9 +44,10 @@ class AlerteCommande extends Component {
     var cmd = this.props.location.state.id;
 
     const myToken = `Bearer ` + localStorage.getItem("myToken");
+    const a=localStorage.getItem('lg')=="ar"?" مع":" à";
     this.setState({
       commande: this.props.location.state.id,
-      deadline: (this.props.location.state.id.deadline.replace(",", "  à ")).substr(0, 20),
+      deadline: (this.props.location.state.id.deadline.replace(",", a)).substr(0, 22),
       avance: this.props.location.state.id.avance,
       //date: datetime,
     });
@@ -124,8 +127,8 @@ class AlerteCommande extends Component {
             })
         ))
         swalWithBootstrapButtons.fire(
-          "Commande validée",
-          "Finalisez votre commande dans Mes Commandes",
+          intl.messages.alerte_cmd_validation_title,
+          intl.messages.alerte_cmd_validation_body,
           'success'
         )
 
@@ -149,20 +152,20 @@ class AlerteCommande extends Component {
       buttonsStyling: false,
     });
     swalWithBootstrapButtons.fire({
-      title: "Etes-vous sûr?",
-      text: "Voulez-vous annuler votre commande!",
+      title: intl.messages.panier_delete_item,
+      text: intl.messages.alerte_cmd_annuler_popup_text,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "  Oui!  ",
-      cancelButtonText: "  Non!  ",
+      confirmButtonText: intl.messages.panier_delete_oui,
+      cancelButtonText: intl.messages.panier_delete_non,
       reverseButtons: true,
     }).then((result) => {
 
 
       if (result.isConfirmed) {
         swalWithBootstrapButtons.fire(
-          'Annulation !',
-          'Votre commande a bien été annulée',
+          intl.messages.alerte_cmd_annulation_success_title,
+          intl.messages.alerte_cmd_annulation_success_body,
           'success'
         )
 
@@ -173,8 +176,8 @@ class AlerteCommande extends Component {
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(
-          'Annulation',
-          'Commande non annulée !',
+          intl.messages.alerte_cmd_annulation_failed_title,
+          intl.messages.alerte_cmd_annulation_failed_body,
           'error'
         )
       }
@@ -185,25 +188,31 @@ class AlerteCommande extends Component {
     //control-arrow control-next
 
     return (
-      <div className="">
+      <div style={localStorage.getItem('lg')=='ar'?{"direction":"rtl","textAlign":"right"}:{}} className="">
         <style>{` .carousel-indicators li  {background-color:#009141; width: 35px;height: 5px;}`}</style>
         <section className="product spad">
           <div className="container">
             <div className="col-lg-12 col-md-6 mx-5 ">
-              <h3>Votre commande s'est déroulée avec succès</h3> <br></br>
+              <h3><FormattedMessage id="alerte_cmd_title"/></h3> <br></br>
               <h5 className="mw-75 " style={{ marginLeft: "2%", marginRight: "10%" }} >
-                Pour valider votre commande , il vous suffit de payer les frais de reservation en effectuant
+                <FormattedMessage id="alerte_cmd_h5_message_validation"/>
                {this.state.commande.mode_paiement_choisi === "transfert" ? <span>
-                  {" un transfert d'argent au  technicien : "}<span className="text-danger font-weight-bold text-uppercase">{this.state.tech}</span> </span> :
+                  {<FormattedMessage id="alerte_cmd_h5_message_transfert_au_technicien"/>}{" "}<span className="text-danger font-weight-bold text-uppercase">{this.state.tech}</span> </span> :
                   <span>
-                    {"  un virement sur le rib suivant : "}<span className="text-danger font-weight-bold">{this.state.rib}</span></span>}
+                    {<FormattedMessage id="alerte_cmd_h5_message_virement_sur_rib"/>}{" "}<span className="text-danger font-weight-bold">{this.state.rib}</span></span>}
                 <br></br>
                 <br></br>
-                Frais de reservation  à payer  : <span className="text-danger font-weight-bold" >{this.state.avance} Dhs</span>
+                <FormattedMessage
+                id = "alerte_cmd_h5_frais_reservation"
+                values = {{avance:this.state.avance, span: (word)=> <span className="text-danger font-weight-bold">{word}</span>}}
+                />
+                {/* Frais de reservation  à payer  : <span className="text-danger font-weight-bold" >{this.state.avance} Dhs</span> */}
               </h5>
               <br></br>
 
-              <div style={{ maxHeight: "600px", maxWidth: "50%", marginLeft: "20%" }}>
+              <div 
+              style={localStorage.getItem('lg')=='ar'?{"maxHeight":"600px","maxWidth":"50%","marginRight":"20%"}:{"maxHeight":"600px","maxWidth":"50%","marginLeft":"20%"}}
+              >
                 {
                   <Carousel fade>
                     {this.state.commande.mode_paiement_choisi === "transfert" ?
@@ -240,18 +249,20 @@ class AlerteCommande extends Component {
               <br></br>
 
               <div className="checkout__input bg-ligh text-danger h6 center mt-5">
-                <span className="font-weight-bold  text-danger h5">Attention : </span> Il vous reste jusqu'au{" "}{this.state.deadline}
-                <span>
-                  <b> {/*this.state.date*/}</b>
-                </span>{" "}
-                pour payer et importer votre reçu de paiement.
+              <FormattedMessage
+                id = "alerte_cmd_attention_message1"
+                values = {{deadline:this.state.deadline, span: (word)=> <span className="font-weight-bold  text-danger h5">{word}</span>}}
+                />
+                {/* <span className="font-weight-bold  text-danger h5">Attention : </span> Il vous reste jusqu'au{" "}{this.state.deadline}
+              {" "}
+                pour payer et importer votre reçu de paiement. */}
               </div>
               <div className="checkout__input bg-ligh text-danger h6 center  " style={{ marginBottom: "90px" }}>
-                Au delà de ce délai, votre commande sera annulée automatiquement !
+                <FormattedMessage id="alerte_cmd_attention_message2"/>
               </div>
               {this.state.show ?
                 <>
-                  <div className="mw-75 " style={{ marginRight: "45%" }} >
+                  <div className="mw-75 " style={localStorage.getItem('lg')=='ar'?{ marginRight: "35%" }:{}} >
                     <Link
                       to={{
                         pathname: "./commandesParStatut",
@@ -263,14 +274,14 @@ class AlerteCommande extends Component {
                           className=" rounded text-white bg-success py-1 px-3 "
                           onClick={this.handlPost}
                           style={{ fontSize: "19px", border: "none" }}
-                        > Valider la commande</button>
+                        ><FormattedMessage id="alerte_cmd_valider"/></button>
                       </b></Link>
                   </div>
                   <br></br>
                   <br></br>
 
 
-                  <div className="mw-75  " style={{ marginRight: "45%" }} >
+                  <div className="mw-75  " style={localStorage.getItem('lg')=='ar'?{ marginRight: "40%" }:{}} >
                     <b className="text-danger float-right ">
                       <button
 
@@ -281,11 +292,11 @@ class AlerteCommande extends Component {
                       //   this.handlePanier(e.currentTarget.id);
                       //  }
                       // }
-                      >{""} Annuler la commande{" "} </button>
+                      >{""} <FormattedMessage id="alerte_cmd_annuler"/>{" "} </button>
                     </b>
                   </div>
                 </> : <>
-                  <div className="mw-75 " style={{ marginRight: "45%" }} >
+                  <div className="mw-75 " style={localStorage.getItem('lg')=='ar'?{ marginRight: "35%" }:{}} >
                     <Link
                       to={{
                         pathname: "./commandesParStatut",
@@ -297,14 +308,14 @@ class AlerteCommande extends Component {
                           className=" rounded text-white bg-success py-1 px-3 "
                           onClick={this.handlPost}
                           style={{ fontSize: "19px", border: "none" }}
-                        > Valider la commande</button>
+                        ><FormattedMessage id="alerte_cmd_valider"/></button>
                       </b></Link>
                   </div>
                   <br></br>
                   <br></br>
 
 
-                  <div className="mw-75  " style={{ marginRight: "45%" }} >
+                  <div className="mw-75  " style={localStorage.getItem('lg')=='ar'?{ marginRight: "40%" }:{}} >
                     <b className="text-danger float-right ">
                       <button
                         disabled
@@ -315,7 +326,7 @@ class AlerteCommande extends Component {
                       //   this.handlePanier(e.currentTarget.id);
                       //  }
                       // }
-                      >{""} Annuler la commande{" "} </button>
+                      >{""}<FormattedMessage id="alerte_cmd_annuler"/>{" "} </button>
                     </b>
                   </div>
                 </>}
