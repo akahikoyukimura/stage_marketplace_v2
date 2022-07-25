@@ -119,6 +119,19 @@
     "cmd_prix_plus_cher_au_moins":"Prix Plus cher au moins cher",
     "cmd_en_cours_de_validation":"Commande(s) en cours de validation",
     "cmd_valide":"Commande(s) validee(s)",
+    "cmd_mouton":"Mouton(s)",
+    "cmd_vache":"Vache(s)",
+    "cmd_chevre":"Chevre(s)",
+    "cmd_kg":"Kg",
+    "cmd_entre_kg_et_kg":"<span>entre : {pMax} Kg et {pMin} Kg</span>",
+    "cmd_age":"Age",
+    "cmd_mois":"mois",
+    "cmd_age_entre_mois_et_mois":"<span>entre : {aMax} mois et {aMin} mois</span>",
+    "cmd_à":"à",
+    "cmd_avance_transmis":"avance transmis le",
+    "cmd_reste_transmis":"reste transmis le",
+    "cmd_complement_transmis":"Complément transmis le",
+    "cmd_annulee_manuellement":"Annulée manuellement",
 
     "_comment9":"la page des eleveurs",
     "eleveurs_rechercher":"Rechercher",
@@ -220,7 +233,14 @@
     "alerte_cmd_annulation_failed_title":"Annulation",
     "alerte_cmd_annulation_failed_body":"Commande non annulée !",
     "alerte_cmd_validation_title":"Commande validée",
-    "alerte_cmd_validation_body":"Finalisez votre commande dans Mes Commandes"
+    "alerte_cmd_validation_body":"Finalisez votre commande dans Mes Commandes",
+
+    "_comment27":"this is ach_details_commande page",
+    "details_cmd_title":"Détails commande",
+    "details_cmd_motif_annulation":"Motif de l'annulation",
+    "details_cmd_details_produit":"Détails produit",
+    "details_cmd_details_livraison":"Détails livraison",
+    "details_cmd_adresse_livraison":"Adresse de livraison"
 
 
   }

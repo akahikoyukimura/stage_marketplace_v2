@@ -420,11 +420,11 @@ class Commandes extends Component {
     });
 
     swalWithBootstrapButtons.fire({
-      title: "Etes-vous sûr?", text: "Voulez-vous annuler votre commande!",
+      title: intl.messages.panier_delete_item, text: intl.messages.alerte_cmd_annuler_popup_text,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "  Oui!  ",
-      cancelButtonText: "  Non!  ",
+      confirmButtonText: intl.messages.panier_delete_oui,
+      cancelButtonText: intl.messages.panier_delete_non,
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -486,8 +486,8 @@ class Commandes extends Component {
             }
 
             swalWithBootstrapButtons.fire(
-              'Annulation !',
-              'Votre commande a bien été annulée',
+              intl.messages.alerte_cmd_annulation_success_title,
+              intl.messages.alerte_cmd_annulation_success_body,
               'success'
             )
           });
@@ -495,8 +495,8 @@ class Commandes extends Component {
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(
-          'Annulation',
-          'Commande non annulée !',
+          intl.messages.alerte_cmd_annulation_failed_title,
+          intl.messages.alerte_cmd_annulation_failed_body,
           'error'
         )
       }
@@ -792,13 +792,13 @@ class Commandes extends Component {
                                 <b>{" "}Validé</b></div> : null}
                             <h5 id="mad">
                               {" "}
-                              {"         " + Annonces.prix_total + "  Dhs"}
+                              {"         " + Annonces.prix_total +" "}<FormattedMessage id="panier_currency"/>
 
                             </h5>
                             {Annonces.especes.length === 1 ?
                               <p className=" mb-0"  >
                                 <div className="d-inline-block ">
-                                  <span className="h6 " id="gras">   № Boucle : </span>
+                                  <span className="h6 " id="gras"> <FormattedMessage id="details_mouton_numero_boucle"/> : </span>
                                 </div>
                                 <div className="d-sm-inline-block  ">
                                   <span style={{ color: "black" }}>{" " + Annonces.espece[0].boucle} </span></div>
@@ -817,77 +817,85 @@ class Commandes extends Component {
                               :
                               <p>
                                 <h6 className="mb-0">
-                                  {this.NbrEspece(Annonces, "mouton") !== 0 ? <span className="w-100">{this.NbrEspece(Annonces, "mouton")} {" : "}Mouton(s) </span> : null}
+                                  {this.NbrEspece(Annonces, "mouton") !== 0 ? <span className="w-100">{this.NbrEspece(Annonces, "mouton")} {" : "}<FormattedMessage id="cmd_mouton"/> </span> : null}
                                 </h6>
 
-                                <h6 className="mb-0">{this.NbrEspece(Annonces, "vache") !== 0 ? <span className="w-100">{this.NbrEspece(Annonces, "vache")}{" : "}Vache(s)  </span> : null}
+                                <h6 className="mb-0">{this.NbrEspece(Annonces, "vache") !== 0 ? <span className="w-100">{this.NbrEspece(Annonces, "vache")}{" : "}<FormattedMessage id="cmd_vache"/>  </span> : null}
                                 </h6>
 
-                                <h6 className="mb-0"> {this.NbrEspece(Annonces, "chevre") !== 0 ? <span className="w-100">{this.NbrEspece(Annonces, "chevre")}{" : "}Chevre(s)</span> : null}
+                                <h6 className="mb-0"> {this.NbrEspece(Annonces, "chevre") !== 0 ? <span className="w-100">{this.NbrEspece(Annonces, "chevre")}{" : "}<FormattedMessage id="cmd_chevre"/></span> : null}
                                 </h6 >
                               </p>}
 
 
                             {this.Max(Annonces, "poids") === this.Min(Annonces, "poids") ? <p className=" mb-0"  >
                               <div className="d-inline-block ">
-                                <h6 id="gras">  <GiWeight className=" mr-1 fa-lg " />Poids :</h6>
+                                <h6 id="gras">  <GiWeight className=" mr-1 fa-lg " />{" "}<FormattedMessage id="home_item_poids"/> :</h6>
                               </div>
                               <div className="d-sm-inline-block  ">
-                                <span style={{ color: "black" }}>{this.Max(Annonces, "poids")} Kg </span></div>
+                                <span style={{ color: "black" }}>{this.Max(Annonces, "poids")} <FormattedMessage id="cmd_kg"/> </span></div>
                             </p>
                               : <p>
-                                <h6 className="mb-0" id="gras">    <GiWeight className=" mr-1 fa-lg " />Poids :</h6>
-                                <span style={{ color: "black" }}>entre : {this.Max(Annonces, "poids")} Kg et {this.Min(Annonces, "poids")} Kg</span>
+                                <h6 className="mb-0" id="gras">    <GiWeight className=" mr-1 fa-lg " />{" "}<FormattedMessage id="home_item_poids"/> :</h6>
+                                <FormattedMessage
+                                id = "cmd_entre_kg_et_kg"
+                                values = {{pMax: this.Max(Annonces, "poids"),pMin:this.Min(Annonces, "poids"), span: (word)=> <span style={{ color: "black" }}>{word}</span>}}
+                                />
+                                {/* <span style={{ color: "black" }}>entre : {this.Max(Annonces, "poids")} Kg et {this.Min(Annonces, "poids")} Kg</span> */}
                               </p>}
                             {this.Max(Annonces, "age") === this.Min(Annonces, "age") ?
 
                               <h6 id="gras">
                                 <div style={{ display: "inline-block" }}>
                                   <img style={{ width: "9%", marginRight: "3%", float: "left" }} src="./Images/age.png" alt="age"></img>
-                                  <h6 id="gras" >Age :  <span style={{ color: "black", fontWeight: "normal" }}>{this.Max(Annonces, "age")} mois</span></h6>
+                                  <h6 id="gras" ><FormattedMessage id="cmd_age"/> :  <span style={{ color: "black", fontWeight: "normal" }}>{this.Max(Annonces, "age")} <FormattedMessage id="cmd_mois"/></span></h6>
                                 </div>
                               </h6>
 
                               :
                               <p>
                                 <span className="mb-0 h6" id="gras">
-                                  <img style={{ width: "9%", marginRight: "3%" }} src="./Images/age.png" alt="age"></img>Age :</span>
+                                  <img style={{ width: "9%", marginRight: "3%" }} src="./Images/age.png" alt="age"></img><FormattedMessage id="cmd_age"/> :</span>
                                 <br></br>
-                                <span style={{ color: "black", fontWeight: "normal" }}>entre : {this.Max(Annonces, "age")} mois et {this.Min(Annonces, "age")} mois</span>
+                                <FormattedMessage
+                                id = "cmd_age_entre_mois_et_mois"
+                                values = {{aMax:this.Max(Annonces, "age"),aMin:this.Min(Annonces, "age"), span: (word)=> <span style={{ color: "black", fontWeight: "normal" }}>{word}</span>}}
+                                />
+                                {/* <span style={{ color: "black", fontWeight: "normal" }}>entre : {this.Max(Annonces, "age")} mois et {this.Min(Annonces, "age")} mois</span> */}
                               </p>}
 
                             {Annonces.statut === "en attente de paiement avance"
                               ||
                               (Annonces.ancien_statut === "en attente de paiement avance" && Annonces.statut === "avarié_changement")
                               ?
-                              <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}Dernier delai : </p><p className="text-danger mb-0 font-weight-bold">{Annonces.deadline.replace(",", " à ")}</p><p id="gras" className=""><i className="fa fa-usd" aria-hidden="true"></i>{" "}Avance à payer  :<span className="text-danger ">{" "}{Annonces.avance} Dhs</span>  </p></div>
+                              <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_statut_dernier_delai"/></p><p className="text-danger mb-0 font-weight-bold">{Annonces.deadline.replace(",", " "+intl.messages.cmd_à)}</p><p id="gras" className=""><i className="fa fa-usd" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_avance"/>  :<span className="text-danger ">{" "}{Annonces.avance} <FormattedMessage id="panier_currency"/></span>  </p></div>
                               : null
                             }
                             {Annonces.statut === "en attente de paiement du reste"
                               ||
                               (Annonces.ancien_statut === "en attente de paiement du reste" && Annonces.statut === "avarié_changement")
                               ?
-                              <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}Dernier delai : </p><p className="text-danger mb-0 font-weight-bold">{Annonces.deadline.replace(",", " à ")}</p><p id="gras" className=""><i className="fa fa-usd" aria-hidden="true"></i>{" "}Reste à payer  :  <span className="text-danger ">{" "}{Annonces.reste} Dhs</span></p></div>
+                              <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_statut_dernier_delai"/></p><p className="text-danger mb-0 font-weight-bold">{Annonces.deadline.replace(",", " "+intl.messages.cmd_à)}</p><p id="gras" className=""><i className="fa fa-usd" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_avance"/>  :  <span className="text-danger ">{" "}{Annonces.reste} <FormattedMessage id="panier_currency"/></span></p></div>
                               : null
                             }
                             {Annonces.statut === "en attente de paiement du complément" ?
-                              <div  ><p id="gras" className="  mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}Dernier delai : </p><p className="text-danger mb-0 font-weight-bold">{Annonces.deadline.replace(",", " à ")}</p><p id="gras" className=""><i className="fa fa-usd" aria-hidden="true"></i> Complement à payer  : <span className="text-danger ">{" "}{Annonces.complement} Dhs</span> </p></div>
+                              <div  ><p id="gras" className="  mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_statut_dernier_delai"/></p><p className="text-danger mb-0 font-weight-bold">{Annonces.deadline.replace(",", " "+intl.messages.cmd_à)}</p><p id="gras" className=""><i className="fa fa-usd" aria-hidden="true"></i> <FormattedMessage id="cmd_statut_compliments_a_payer"/>  : <span className="text-danger ">{" "}{Annonces.complement} <FormattedMessage id="panier_currency"/></span> </p></div>
                               : null
                             }
                             {
-                              Annonces.statut === "en attente de validation avance" ? <div ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "} avance transmis le :</p> <p className="text-danger font-weight-bold mt-0">  {Annonces.avance_transmis_le.substr(0, 10) + " à " + Annonces.avance_transmis_le.substr(11, 8)}</p></div> : null
+                              Annonces.statut === "en attente de validation avance" ? <div ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "} <FormattedMessage id="cmd_avance_transmis"/> :</p> <p className="text-danger font-weight-bold mt-0">  {Annonces.avance_transmis_le.substr(0, 10) + " "+intl.messages.cmd_à+" " + Annonces.avance_transmis_le.substr(11, 8)}</p></div> : null
                             }
-                            {(Annonces.statut === "en attente de validation reste" || Annonces.statut === "validé" || (Annonces.statut === "avarié_changement" && Annonces.ancien_statut === "validé")) ? <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}reste transmis le : </p><p className="text-danger font-weight-bold mt-0">{Annonces.reste_transmis_le.substr(0, 10) + " à " + Annonces.reste_transmis_le.substr(11, 8)}</p></div> : null}
-                            {(Annonces.statut === "validé" && Annonces.date_de_livraison) ? <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}Date de livraison : </p><p className="text-danger font-weight-bold"> {Annonces.date_de_livraison.replace(/-/g, " / ")}</p></div> : null}
+                            {(Annonces.statut === "en attente de validation reste" || Annonces.statut === "validé" || (Annonces.statut === "avarié_changement" && Annonces.ancien_statut === "validé")) ? <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_reste_transmis"/> : </p><p className="text-danger font-weight-bold mt-0">{Annonces.reste_transmis_le.substr(0, 10) + " "+intl.messages.cmd_à+" " + Annonces.reste_transmis_le.substr(11, 8)}</p></div> : null}
+                            {(Annonces.statut === "validé" && Annonces.date_de_livraison) ? <div  ><p id="gras" className=" mb-0"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_statut_date_livraison"/> </p><p className="text-danger font-weight-bold"> {Annonces.date_de_livraison.replace(/-/g, " / ")}</p></div> : null}
 
                             {(Annonces.statut === "en attente de validation complément") ?
-                              <div  ><p className="mb-0" id="gras"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}Complément transmis le : </p><p className="text-danger font-weight-bold"> {" "}{Annonces.complement_transmis_le.substr(0, 10) + " à " + Annonces.complement_transmis_le.substr(11, 8)}</p></div> : null}
+                              <div  ><p className="mb-0" id="gras"><i className="fa fa-calendar-o" aria-hidden="true"></i>{" "}<FormattedMessage id="cmd_complement_transmis"/> : </p><p className="text-danger font-weight-bold"> {" "}{Annonces.complement_transmis_le.substr(0, 10) + " "+intl.messages.cmd_à+" " + Annonces.complement_transmis_le.substr(11, 8)}</p></div> : null}
 
 
                             {this.props.location.state.id === "commande annulée (deadline dépassé)#reçu avance refusé#reçu reste refusé#reçu complément refusé#avarié#rejetée#annulée manuellement#remboursement#avarié_changement#avarié_remboursement#avarié_annulé" ?
                               (Annonces.statut === "annulée manuellement") ? <p className=" text-danger">
                                 <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                {" "} Annulée manuellement  </p>
+                                {" "} <FormattedMessage id="cmd_annulee_manuellement"/>  </p>
                                  :  null:null}
                           </div>
                         </div>

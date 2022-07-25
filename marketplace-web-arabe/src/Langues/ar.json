@@ -118,6 +118,19 @@
     "cmd_prix_plus_cher_au_moins":"السعر من الأغلى إلى الأرخص ",
     "cmd_en_cours_de_validation":"الطلبية (الطلبيات) التي يتم التحقق من صحتها",
     "cmd_valide":"الطلبية (الطلبيات) التي تم التحقق من صحتها",
+    "cmd_mouton":"خروف (خرفان)",
+    "cmd_vache":"بقرة (أبقار)",
+    "cmd_chevre":"ماعز",
+    "cmd_kg":"كلغ",
+    "cmd_entre_kg_et_kg":"<span>بين : {pMax} كلغ et {pMin} كلغ</span>",
+    "cmd_age":"العمر",
+    "cmd_mois":"اشهر",
+    "cmd_age_entre_mois_et_mois":"<span>بين : {aMax} اشهر et {aMin} اشهر</span>",
+    "cmd_à":"عند",
+    "cmd_avance_transmis":"تم إرسال التسبيق يوم ",
+    "cmd_reste_transmis":"تم إرسال الباقي يوم",
+    "cmd_complement_transmis":"تم إرسال التكاليف الإضافية يوم",
+    "cmd_annulee_manuellement":"تم الإلغاء يدويًا",
 
     "_comment9":"la page des eleveurs",
     "eleveurs_rechercher":"بحث",
@@ -219,6 +232,13 @@
     "alerte_cmd_annulation_failed_title":"إلغاء",
     "alerte_cmd_annulation_failed_body":"!لم يتم إلغاء الطلبية",
     "alerte_cmd_validation_title":"تمت المصادقة على الطلبية",
-    "alerte_cmd_validation_body":"قم بإنهاء طلبيتك في قسم طلباتي"
+    "alerte_cmd_validation_body":"قم بإنهاء طلبيتك في قسم طلباتي",
+
+    "_comment27":"this is ach_details_commande page",
+    "details_cmd_title":"تفاصيل الطلبية",
+    "details_cmd_motif_annulation":"سبب الالغاء",
+    "details_cmd_details_produit":"تفاصيل المنتج",
+    "details_cmd_details_livraison":"تفاصيل التوصيل",
+    "details_cmd_adresse_livraison":"عنوان التوصيل"
 
   }

@@ -9,6 +9,9 @@ import { Modal, Button } from 'react-bootstrap';
 import { Redirect } from "react-router";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { FormattedMessage } from "react-intl";
+
+const intl=JSON.parse(localStorage.getItem('intl'))
 class DetailsCommande extends Component {
   constructor(props) {
     super(props);
@@ -1186,10 +1189,10 @@ axios
           }
           message='Voulez-vous vraiment quitter cette page ? Les modifications que vous avez apportées ne seront pas enregistrées'
         />
-        <div>
+        <div style={localStorage.getItem('lg')=="ar"?{"direction":"rtl"}:{}}>
           <style>{`.btn-link {  color:white} .btn-link:hover {color:white;} .card { background-color: #fafafa !important } .container {max-width: 90%;}  `}</style>
           <div className="container">
-            <h3>Détails commande  </h3>
+            <h3><FormattedMessage id="details_cmd_title"/>  </h3>
             <br></br>
             <div>
               <div id="accordion">
@@ -1200,7 +1203,7 @@ axios
                     <div className="card-header p-0" style={{ backgroundColor: "#009141" }} id="headingfour">
                       <h5 className="mb-0">
                         <button onClick={this.showCard.bind(this,0)} className="btn btn-link collapsed" >
-                          <h5 style={{ color: "white" }}><FaClipboardCheck className="mb-2" /> {" "}Motif de l'annulation
+                          <h5 style={{ color: "white" }}><FaClipboardCheck className="mb-2" /> {" "}<FormattedMessage id="details_cmd_motif_annulation"/>
                       </h5>  </button>
                       </h5>
                     </div>
@@ -1233,22 +1236,22 @@ axios
                                 {Annonces.anoc ?
                                   <h1 style={{ borderRadius: "0% 0% 0% 40%", fontSize: "14px" }} className=" badge badge-success py-1 w-100  ">
                                     <HiOutlineBadgeCheck className=" mr-1 fa-lg " />
-                                    <span>Labélisé ANOC</span>  </h1>
+                                    <span><FormattedMessage id="panier_Labelise"/></span>  </h1>
                                   :
                                   <span className="badge pt-3 w-100  mt-1  " >{"  "}</span>
                                 }
                                 <div className="product__item__text p-2 text-justify"
                                 >
-                                  <h6 className=""><b>№ Boucle</b> : {Annonces.boucle}</h6>
-                                  <h6 className=""><b>Espece</b> : {Annonces.espece}</h6>
-                                   <h6 className=""><b>Race :</b> {Annonces.race}</h6>
-                                  <h6 className=""><b>Poids : </b>{Annonces.poids} Kg</h6>
-                                  <h6 className=""><b>Age :</b> {Annonces.age} mois</h6>
-                                  <h6 className=""><b>Localisation :</b> {Annonces.localisation}</h6>
+                                  <h6 className=""><b><FormattedMessage id="details_mouton_numero_boucle"/></b> : {Annonces.boucle}</h6>
+                                  <h6 className=""><b><FormattedMessage id="details_mouton_espece"/></b> : {Annonces.espece}</h6>
+                                   <h6 className=""><b><FormattedMessage id="home_item_race"/> :</b> {Annonces.race}</h6>
+                                  <h6 className=""><b><FormattedMessage id="home_item_poids"/> : </b>{Annonces.poids} <FormattedMessage id="cmd_kg"/></h6>
+                                  <h6 className=""><b><FormattedMessage id="cmd_age"/> :</b> {Annonces.age} <FormattedMessage id="cmd_mois"/></h6>
+                                  <h6 className=""><b><FormattedMessage id="add_mouton_localisation"/> :</b> {Annonces.localisation}</h6>
                                   <h5 className=" text-danger  ">
                                     <i className="fa fa-usd" aria-hidden="true"></i>
                                     {" "}
-                                    {Annonces.prix + "  Dhs"}
+                                    {Annonces.prix + " "+intl.messages.panier_currency}
                                   </h5>
                                   <div className="row mt-3">
                                     <div className="col-2">{" "}</div>
@@ -1278,7 +1281,7 @@ axios
                   <div className="card-header p-0" style={{ backgroundColor: "#009141" }} id="headingOne">
                     <h5 className="mb-0">
                       <button onClick={this.showCard.bind(this,1)} className="btn btn-link" >
-                        <h5 style={{ color: "white" }}><FaClipboardCheck className="mb-2" /> {" "}  Détails produit </h5>  </button>
+                        <h5 style={{ color: "white" }}><FaClipboardCheck className="mb-2" /> {" "}  <FormattedMessage id="details_cmd_details_produit"/> </h5>  </button>
 
                     </h5>
                   </div>
@@ -1326,7 +1329,7 @@ axios
                                   {esp.anoc ?
                                     <h1 style={{ borderRadius: "0% 0% 0% 40%", fontSize: "14px" }} className=" badge badge-success py-1 w-100  ">
                                       <HiOutlineBadgeCheck className=" mr-1 fa-lg " />
-                                      <span>Labélisé ANOC</span>  </h1>
+                                      <span><FormattedMessage id="panier_Labelise"/></span>  </h1>
                                     :
                                     <span className="badge pt-3 w-100  mt-1  ">{"  "}</span>}
 
@@ -1335,18 +1338,18 @@ axios
                               </div>
                               <div className="col-lg-6  col-sm-6 border" style={{ height: "250px", backgroundRepeat: "no-repeat", backgroundImage: esp.statut  === "produit avarié" ? "linear-gradient(rgb(255,153,153), rgb(255,204,204))" : null, backgroundSize: "cover" }}>
                                 <div className="product__item__text p-2 text-justify">
-                                  <h6 className=""><b>№ Boucle</b> : {esp.boucle}</h6>
-                                  <h6 className=""><b>Espece</b> : {esp.espece}</h6>
-                                   <h6 className=""><b>Race :</b> {esp.race}</h6>
-                                  <h6 className=""><b>Poids : </b>{esp.poids} Kg</h6>
-                                  <h6 className=""><b>Age :</b> {esp.age} mois</h6>
-                                  <h6 className=""><b>Localisation :</b> {esp.localisation}</h6>
+                                  <h6 className=""><b><FormattedMessage id="details_mouton_numero_boucle"/></b> : {esp.boucle}</h6>
+                                  <h6 className=""><b><FormattedMessage id="details_mouton_espece"/></b> : {esp.espece}</h6>
+                                   <h6 className=""><b><FormattedMessage id="home_item_race"/> :</b> {esp.race}</h6>
+                                  <h6 className=""><b><FormattedMessage id="home_item_poids"/> : </b>{esp.poids} <FormattedMessage id="cmd_kg"/></h6>
+                                  <h6 className=""><b><FormattedMessage id="cmd_age"/> :</b> {esp.age} <FormattedMessage id="cmd_mois"/></h6>
+                                  <h6 className=""><b><FormattedMessage id="add_mouton_localisation"/> :</b> {esp.localisation}</h6>
 
 
                                   <h5 className=" text-danger mt-4">
                                     <i className="fa fa-usd" aria-hidden="true"></i>
                                     {" "}
-                                    {esp.prix + "  Dhs"}
+                                    {esp.prix + " "+intl.messages.panier_currency}
                                   </h5>
                                 </div>
                               </div>
@@ -1367,7 +1370,7 @@ axios
                   <div className="card-header p-0" style={{ backgroundColor: "#009141" }} id="headingTwo">
                     <h5 className="mb-0">
                       <button   onClick={this.showCard.bind(this,2)} className="btn btn-link collapsed"  >
-                        <h5 style={{ color: "white" }}><FaClipboardCheck className="mb-2" /> {" "}  Détails livraison </h5>  </button>
+                        <h5 style={{ color: "white" }}><FaClipboardCheck className="mb-2" /> {" "}  <FormattedMessage id="details_cmd_details_livraison"/> </h5>  </button>
                     </h5>
                   </div>
                   <div className="">
@@ -1379,20 +1382,20 @@ axios
                               {commandes.date_de_livraison?
                               <li>
                                 <i className="fa fa-calendar-o" aria-hidden="true"></i>
-                                {" "}Date de livraison :<b style={{ fontWeight: "normal" }}>{" "}{commandes.date_de_livraison.replace(/-/g, " / ")} </b>
+                                {" "}<FormattedMessage id="cmd_statut_date_livraison"/><b style={{ fontWeight: "normal" }}>{" "}{commandes.date_de_livraison.replace(/-/g, " / ")} </b>
                               </li>
                               :null}
                               <li>
                                 <i className="fa fa-map-o" aria-hidden="true"></i>
-                                {" "}Ville de livraison : <b style={{ fontWeight: "normal" }}>{" " + commandes.ville_livraison}</b>  </li>
+                                {" "}<FormattedMessage id="step1_ville_de_livraison"/> : <b style={{ fontWeight: "normal" }}>{" " + commandes.ville_livraison}</b>  </li>
                               <li>
                                 <i className="fa fa-map-marker" aria-hidden="true"></i>
-                                {" "}Adresse de livraison : <b style={{ fontWeight: "normal" }}>{commandes.adresse_domicile ? commandes.adresse_domicile : commandes.point_relais}</b>  </li>
+                                {" "}<FormattedMessage id="details_cmd_adresse_livraison"/> : <b style={{ fontWeight: "normal" }}>{commandes.adresse_domicile ? commandes.adresse_domicile : commandes.point_relais}</b>  </li>
                                 {commandes.date_de_livraison?
                             null
                               :
                               <h6 style={{ color: "#bb2124",marginBottom:"10px"  }}>
-                              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>{" "}Votre commande sera livre 24h a 48h avant le jour de l'aid. Nous vous contacterons par telephone preciser vous informer du jour et de l'heure exacte.                                </h6>
+                              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>{" "}<FormattedMessage id="step1_message_livraison"/> </h6>
                          
                          }
                             </ul>
